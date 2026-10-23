@@ -7,9 +7,10 @@ import {
   useScroll,
   useTransform,
 } from "motion/react";
-import { company, services, strengths } from "../data/site";
+import { company, services, strengths, visualAssets } from "../data/site";
 import { ButtonLink, CTA, SectionHeading } from "../components/Shared";
 import { Reveal } from "../components/Reveal";
+import { Approach } from "../components/Approach";
 
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
@@ -36,25 +37,27 @@ export default function Home() {
           HONGYU — TOKYO, JAPAN
         </div>
         <div className="container home-hero-content">
-          <Reveal delay={0.06}>
-            <span className="eyebrow hero-eyebrow">HONGYU INC.</span>
-          </Reveal>
-          <Reveal delay={0.16}>
-            <h1>
-              日本の街に、
-              <br />
-              次世代の価値を創る。
-            </h1>
-          </Reveal>
-          <Reveal delay={0.25}>
-            <p className="hero-business-line">
-              不動産開発 <span>×</span> 投資運用 <span>×</span> 資産管理
-            </p>
-            <p className="hero-description">{company.description}</p>
-          </Reveal>
-          <Reveal delay={0.34}>
-            <ButtonLink to="/services">事業内容を見る</ButtonLink>
-          </Reveal>
+          <div className="home-hero-copy">
+            <Reveal delay={0.06}>
+              <span className="eyebrow hero-eyebrow">HONGYU INC.</span>
+            </Reveal>
+            <Reveal delay={0.16}>
+              <h1>
+                日本の街に、
+                <br />
+                次世代の価値を創る。
+              </h1>
+            </Reveal>
+            <Reveal delay={0.25}>
+              <p className="hero-business-line">
+                不動産開発 <span>×</span> 投資運用 <span>×</span> 資産管理
+              </p>
+              <p className="hero-description">{company.description}</p>
+            </Reveal>
+            <Reveal delay={0.34}>
+              <ButtonLink to="/services">事業内容を見る</ButtonLink>
+            </Reveal>
+          </div>
         </div>
         <a
           className="scroll-cue"
@@ -74,10 +77,10 @@ export default function Home() {
           </Reveal>
           <div className="strength-grid">
             {strengths.map((item, index) => (
-              <Reveal key={item.number} delay={index * 0.08}>
+              <Reveal key={item.number} delay={index * 0.1}>
                 <Link
                   to={`/services#${item.target}`}
-                  className="strength-card group"
+                  className={`strength-card group ${item.target === "global" ? "strength-card--global" : ""}`}
                 >
                   <div className="image-frame">
                     <img
@@ -87,7 +90,6 @@ export default function Home() {
                       width="576"
                       height="290"
                     />
-                    <span className="image-number">{item.number}</span>
                   </div>
                   <div className="strength-card-body">
                     <span className="card-number">
@@ -107,6 +109,9 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+          <Reveal>
+            <Approach />
+          </Reveal>
         </div>
       </section>
       <section className="business-section">
@@ -116,7 +121,7 @@ export default function Home() {
           </Reveal>
           <div className="business-grid">
             {services.map((service, index) => (
-              <Reveal key={service.id} delay={index * 0.06}>
+              <Reveal key={service.id} delay={index * 0.1}>
                 <Link
                   to={`/services#${service.id}`}
                   className="business-link group"
@@ -145,6 +150,8 @@ export default function Home() {
         </div>
       </section>
       <CTA
+        className="home-cta"
+        image={visualAssets.night}
         title={
           <>
             持続可能な街づくりと、

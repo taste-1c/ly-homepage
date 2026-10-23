@@ -38,7 +38,7 @@ export function Accordion({
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: reduced ? 0 : 0.28 }}
+              transition={{ duration: reduced ? 0 : 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
               <div className="accordion-content">{children}</div>
             </motion.div>

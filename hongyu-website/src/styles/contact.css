@@ -1,0 +1,669 @@
+/* 仅作用于新版 Contact，避免懒加载样式影响其他页面。 */
+.contact-page .container {
+  max-width: 1280px;
+}
+
+.contact-page .contact-hero {
+  position: relative;
+  isolation: isolate;
+  height: clamp(300px, 29.4vw, 470px);
+  overflow: hidden;
+  background: #082923;
+  color: #fff;
+}
+.contact-page .contact-hero-image,
+.contact-page .contact-hero-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.contact-page .contact-hero-image {
+  object-fit: cover;
+  object-position: center 49%;
+}
+.contact-page .contact-hero-shade {
+  background: linear-gradient(90deg, #031e1af5, #052b2399 34%, #092d2a12 72%);
+}
+.contact-page .contact-hero-content {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 88px;
+}
+.contact-page .contact-hero .eyebrow {
+  color: #d9c08f;
+  font-size: 11px;
+}
+.contact-page .contact-hero h1 {
+  margin-block: 14px 10px;
+  font-size: clamp(44px, 4.45vw, 68px);
+  line-height: 1.4;
+  letter-spacing: 0.075em;
+}
+.contact-page .contact-hero p {
+  font: 22px/1.8 var(--font-serif);
+  letter-spacing: 0.06em;
+}
+.contact-page .breadcrumb {
+  padding-block: 15px;
+  line-height: 1.6;
+}
+
+/* 左文右邮箱，保持设计稿的宽扁比例。 */
+.contact-page .contact-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.83fr) minmax(0, 1fr);
+  gap: 48px;
+  padding-top: 16px;
+  align-items: start;
+}
+.contact-page .contact-intro > div,
+.contact-page .contact-access-column {
+  min-width: 0;
+}
+.contact-page .contact-intro-copy {
+  padding-top: 30px;
+}
+.contact-page .contact-intro h2 {
+  margin-block: 18px 21px;
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.55;
+  letter-spacing: 0.015em;
+}
+.contact-page .contact-intro-copy p {
+  font: 17px/2 var(--font-serif);
+  color: #363c34;
+}
+.contact-page .contact-email-card {
+  position: relative;
+  min-height: 310px;
+  padding: clamp(30px, 3.1vw, 48px);
+  border: 1px solid #b69a6547;
+  border-radius: 3px;
+  background:
+    radial-gradient(ellipse at 100% 0%, #274b3d66, transparent 64%),
+    linear-gradient(125deg, #052b25, #031d19);
+  color: #f7f3e8;
+  box-shadow: 0 5px 20px #06251e08;
+  transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
+}
+.contact-page .contact-email-card:hover,
+.contact-page .contact-email-card:focus-within {
+  transform: translateY(-4px);
+  border-color: #d2b781;
+  box-shadow: 0 12px 32px #06251e1c, inset 0 0 28px #c8a96d08;
+}
+.contact-page .contact-email-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  font-size: 17px;
+  line-height: 1.7;
+  letter-spacing: 0.04em;
+  color: #e4d0a5;
+}
+.contact-page .contact-email-card h3 svg {
+  color: #c4a36b;
+}
+.contact-page .contact-email-address {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin-block: 20px 29px;
+  font: clamp(32px, 3.55vw, 52px)/1.25 var(--font-serif);
+  color: #ddc28c;
+  letter-spacing: 0.012em;
+  overflow-wrap: anywhere;
+}
+.contact-page .contact-email-actions {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 14px;
+}
+.contact-page .contact-mail-button,
+.contact-page .contact-copy-button {
+  min-width: 0;
+  min-height: 56px;
+  padding: 14px 20px;
+  gap: 14px;
+  font-size: 12px;
+  letter-spacing: 0.035em;
+}
+.contact-page .contact-mail-button {
+  justify-content: flex-start;
+  background: #ad9059;
+}
+.contact-page .contact-button-arrow {
+  margin-left: auto;
+}
+.contact-page .contact-copy-button {
+  justify-content: center;
+  border-color: #bfa16a;
+  background: transparent;
+  color: #fff;
+}
+.contact-page .contact-copy-button:hover,
+.contact-page .contact-copy-button:focus-visible {
+  background: #b69a651c;
+}
+.contact-page .contact-mail-button:hover > svg:not(.contact-button-arrow),
+.contact-page .contact-mail-button:focus-visible > svg:not(.contact-button-arrow),
+.contact-page .contact-copy-button:hover svg,
+.contact-page .contact-copy-button:focus-visible svg {
+  transform: none;
+}
+.contact-page .contact-copy-status.is-error {
+  margin-top: 12px;
+  color: #eddbc1;
+  font-size: 11px;
+}
+
+.contact-page .contact-consultations {
+  padding-top: 25px;
+}
+.contact-page .contact-consultations h2 {
+  margin-block: 10px 23px;
+  font-size: 30px;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+.contact-page .contact-consultation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.contact-page .contact-consultation-grid > div {
+  height: 100%;
+  min-width: 0;
+}
+.contact-page .consultation-card {
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 2px;
+  background: #fefdfb;
+  box-shadow: 0 4px 13px #17292209;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+.contact-page .consultation-card:hover,
+.contact-page .consultation-card:focus-visible {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px #17292212;
+}
+.contact-page .consultation-image {
+  aspect-ratio: 2.15;
+  overflow: hidden;
+}
+.contact-page .consultation-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+  transition: transform 0.4s ease;
+}
+.contact-page .consultation-card--global .consultation-image img {
+  width: 150%;
+  max-width: none;
+  object-position: left 68%;
+}
+.contact-page .consultation-card:hover img,
+.contact-page .consultation-card:focus-visible img {
+  transform: scale(1.03);
+}
+.contact-page .consultation-card-body {
+  display: grid;
+  grid-template-columns: 31px minmax(0, 1fr) 18px;
+  align-items: start;
+  gap: 17px;
+  min-height: 131px;
+  padding: 21px 20px 22px;
+}
+.contact-page .consultation-icon {
+  margin-top: 4px;
+  color: #3f483b;
+}
+.contact-page .consultation-card h3 {
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+.contact-page .consultation-card p {
+  margin-top: 6px;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #7b8075;
+}
+.contact-page .consultation-arrow {
+  align-self: center;
+  color: #505b48;
+  transition: transform 0.4s;
+}
+.contact-page .consultation-card:hover .consultation-arrow,
+.contact-page .consultation-card:focus-visible .consultation-arrow {
+  transform: translateX(4px);
+}
+
+/* 联系资料独立成列，地图与 FAQ 共享右侧的宽度。 */
+.contact-page .contact-details-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.43fr) minmax(0, 1fr);
+  gap: 64px;
+  padding-block: 40px 34px;
+  align-items: start;
+}
+.contact-page .contact-directory h2 {
+  margin-block: 7px 24px;
+  font-size: 30px;
+  line-height: 1.6;
+}
+.contact-page .contact-directory dl > div {
+  position: relative;
+  padding-left: 56px;
+  margin-bottom: 22px;
+}
+.contact-page .contact-directory dl svg {
+  position: absolute;
+  left: 7px;
+  top: 4px;
+  width: 29px;
+  height: 29px;
+  color: #95733c;
+  stroke-width: 1.2;
+}
+.contact-page .contact-directory dt {
+  color: #856636;
+  font: 16px/1.5 var(--font-serif);
+}
+.contact-page .contact-directory dd {
+  margin-top: 3px;
+  max-width: 230px;
+  font-size: 14px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.contact-page .contact-directory dd small {
+  display: block;
+  font-size: 12px;
+}
+.contact-page .contact-directory dd a:hover {
+  color: var(--gold-dark);
+}
+.contact-page .contact-information-note {
+  max-width: 280px;
+  padding-left: 7px;
+  margin-top: 25px;
+  font-size: 10px;
+  color: #7b8075;
+  line-height: 1.8;
+}
+.contact-page .contact-location-pending {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 280px;
+  border: 1px solid #d6d5c975;
+  border-radius: 3px;
+  background-color: #eeeee6;
+  background-image:
+    linear-gradient(#b69a6508 1px, transparent 1px),
+    linear-gradient(90deg, #b69a6508 1px, transparent 1px);
+  background-size: 48px 48px;
+  color: #686f5f;
+}
+.contact-page .contact-location-pending > svg {
+  margin-bottom: 5px;
+  color: #a78b59;
+}
+.contact-page .contact-location-pending > span {
+  font: 18px/1.7 var(--font-serif);
+  letter-spacing: 0.05em;
+}
+.contact-page .contact-location-pending strong {
+  padding: 2px 11px;
+  border: 1px solid #b69a6552;
+  border-radius: 2px;
+  font-size: 10px;
+  font-weight: 400;
+  color: #856a39;
+}
+.contact-page .contact-location-pending p {
+  margin-top: 3px;
+  font-size: 11px;
+  color: #7a8072;
+}
+.contact-page .contact-map-action {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px 16px;
+  padding-top: 12px;
+}
+.contact-page .contact-map-action > span {
+  font-size: 10px;
+  color: #969888;
+}
+.contact-page .contact-map-action button {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  min-height: 36px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: #9e8b69;
+  font-size: 12px;
+}
+.contact-page .contact-faq {
+  display: grid;
+  grid-template-columns: 195px minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 21px;
+}
+.contact-page .contact-faq h2 {
+  margin-top: 8px;
+  font-size: 26px;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+}
+.contact-page .contact-faq-list {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+.contact-page .accordion--faq {
+  background: #fbfaf6;
+  border-color: #d9d8cd;
+  border-radius: 2px;
+}
+.contact-page .accordion--faq button {
+  min-height: 46px;
+  padding: 11px 17px;
+  font-size: 12px;
+  color: #4b5145;
+  gap: 17px;
+}
+.contact-page .accordion--faq button > svg {
+  display: none;
+}
+.contact-page .accordion--faq button::after {
+  content: "+";
+  flex-shrink: 0;
+  width: 15px;
+  font: 21px/1 var(--font-sans);
+  text-align: center;
+  color: #59634f;
+}
+.contact-page .accordion--faq.is-open button::after {
+  content: "−";
+}
+.contact-page .accordion--faq .accordion-content {
+  padding: 0 17px 16px;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.contact-page .contact-mail-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #082923;
+  color: #fff;
+}
+.contact-page .contact-mail-cta > img,
+.contact-page .contact-cta-shade {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.contact-page .contact-mail-cta > img {
+  object-fit: cover;
+  object-position: center 58%;
+}
+.contact-page .contact-cta-shade {
+  background:
+    linear-gradient(0deg, #082923, #08292300 32%),
+    linear-gradient(90deg, #031f1be8, #05261f77 56%, #0829230d);
+}
+.contact-page .contact-cta-content {
+  padding-block: 38px 42px;
+}
+.contact-page .contact-mail-cta h2 {
+  font-size: clamp(27px, 2.8vw, 40px);
+  line-height: 1.6;
+  letter-spacing: 0.035em;
+}
+.contact-page .contact-mail-cta p {
+  margin-top: 6px;
+  font: 17px/1.9 var(--font-serif);
+  color: #eee9da;
+}
+.contact-page .contact-mail-cta .button {
+  margin-top: 23px;
+  min-width: 250px;
+}
+
+@media (min-width: 768px) and (max-width: 1100px) {
+  .contact-page .contact-intro {
+    gap: 30px;
+  }
+  .contact-page .contact-email-card {
+    padding: 28px;
+    min-height: 260px;
+  }
+  .contact-page .contact-email-card h3 {
+    font-size: 14px;
+    gap: 12px;
+  }
+  .contact-page .contact-email-address {
+    margin-block: 18px 24px;
+  }
+  .contact-page .contact-email-actions {
+    gap: 10px;
+  }
+  .contact-page .contact-email-actions .button {
+    padding: 12px;
+    font-size: 10px;
+    gap: 8px;
+    min-height: 48px;
+  }
+  .contact-page .contact-intro-copy p {
+    font-size: 14px;
+  }
+  .contact-page .contact-desktop-break {
+    display: none;
+  }
+  .contact-page .consultation-card-body {
+    grid-template-columns: 24px minmax(0, 1fr) 15px;
+    gap: 10px;
+    padding: 18px 14px;
+  }
+  .contact-page .consultation-icon {
+    width: 24px;
+  }
+  .contact-page .consultation-card p {
+    font-size: 12px;
+  }
+  .contact-page .contact-details-grid {
+    gap: 35px;
+  }
+  .contact-page .contact-faq {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-page .contact-hero {
+    height: 340px;
+  }
+  .contact-page .contact-hero-image {
+    object-position: 58% center;
+  }
+  .contact-page .contact-hero-shade {
+    background: linear-gradient(90deg, #031f1bea, #052b2385 62%, #092d2a38);
+  }
+  .contact-page .contact-hero-content {
+    padding-top: 62px;
+  }
+  .contact-page .contact-hero h1 {
+    font-size: 42px;
+    margin-block: 14px 11px;
+  }
+  .contact-page .contact-hero p {
+    font-size: 17px;
+  }
+  .contact-page .breadcrumb {
+    padding-block: 14px;
+  }
+  .contact-page .contact-intro {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    padding-top: 17px;
+  }
+  .contact-page .contact-intro-copy {
+    padding-top: 0;
+  }
+  .contact-page .contact-intro h2 {
+    margin-block: 13px 14px;
+    font-size: 29px;
+  }
+  .contact-page .contact-intro-copy p {
+    font-size: 14px;
+    line-height: 2;
+  }
+  .contact-page .contact-desktop-break {
+    display: none;
+  }
+  .contact-page .contact-email-card {
+    padding: 27px 24px;
+    min-height: 0;
+  }
+  .contact-page .contact-email-card h3 {
+    gap: 12px;
+    font-size: 14px;
+  }
+  .contact-page .contact-email-card h3 svg {
+    width: 29px;
+    height: 29px;
+  }
+  .contact-page .contact-email-address {
+    font-size: clamp(27px, 8.5vw, 36px);
+    margin-block: 20px 23px;
+  }
+  .contact-page .contact-email-actions {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .contact-page .contact-email-actions .button {
+    min-height: 50px;
+  }
+  .contact-page .contact-consultations {
+    padding-top: 35px;
+  }
+  .contact-page .contact-consultations h2 {
+    margin-block: 9px 20px;
+    font-size: 24px;
+  }
+  .contact-page .contact-consultation-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .contact-page .consultation-card-body {
+    grid-template-columns: 27px minmax(0, 1fr) 17px;
+    gap: 14px;
+    padding: 20px;
+    min-height: 128px;
+  }
+  .contact-page .consultation-icon {
+    width: 27px;
+  }
+  .contact-page .consultation-card h3 {
+    font-size: 18px;
+  }
+  .contact-page .consultation-card p {
+    font-size: 12px;
+  }
+  .contact-page .contact-details-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding-block: 36px 34px;
+  }
+  .contact-page .contact-directory h2 {
+    margin-bottom: 22px;
+    font-size: 26px;
+  }
+  .contact-page .contact-directory dl > div {
+    padding-left: 50px;
+    margin-bottom: 20px;
+  }
+  .contact-page .contact-directory dl svg {
+    width: 25px;
+    height: 25px;
+  }
+  .contact-page .contact-information-note {
+    margin-top: 20px;
+  }
+  .contact-page .contact-location-pending {
+    height: 230px;
+  }
+  .contact-page .contact-map-action {
+    gap: 4px 10px;
+  }
+  .contact-page .contact-map-action button {
+    gap: 10px;
+    font-size: 11px;
+  }
+  .contact-page .contact-faq {
+    grid-template-columns: 1fr;
+    gap: 17px;
+    margin-top: 24px;
+  }
+  .contact-page .contact-faq h2 {
+    font-size: 25px;
+  }
+  .contact-page .accordion--faq button {
+    min-height: 52px;
+    padding: 14px 15px;
+    font-size: 12px;
+    gap: 14px;
+  }
+  .contact-page .contact-cta-content {
+    padding-block: 38px 42px;
+  }
+  .contact-page .contact-mail-cta > img {
+    object-position: 60% 58%;
+  }
+  .contact-page .contact-mail-cta h2 {
+    font-size: 26px;
+    line-height: 1.7;
+    max-width: 340px;
+  }
+  .contact-page .contact-mail-cta p {
+    margin-top: 12px;
+    font-size: 13px;
+  }
+  .contact-page .contact-mail-cta .button {
+    min-width: 220px;
+    margin-top: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-page .contact-email-card:hover,
+  .contact-page .contact-email-card:focus-within,
+  .contact-page .consultation-card:hover,
+  .contact-page .consultation-card:focus-visible,
+  .contact-page .consultation-card:hover img,
+  .contact-page .consultation-card:focus-visible img,
+  .contact-page .consultation-card:hover .consultation-arrow,
+  .contact-page .consultation-card:focus-visible .consultation-arrow {
+    transform: none;
+  }
+}

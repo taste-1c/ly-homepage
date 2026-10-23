@@ -19,7 +19,12 @@ export function useRouteEffects() {
         const target = document.getElementById(
           decodeURIComponent(hash.slice(1)),
         );
-        target?.scrollIntoView({ behavior: "instant", block: "start" });
+        target?.scrollIntoView({
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "instant"
+            : "smooth",
+          block: "start",
+        });
       } else {
         window.scrollTo({ top: 0, behavior: "instant" });
       }

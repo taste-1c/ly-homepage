@@ -2,6 +2,7 @@ import { BadgeCheck, ChartNoAxesCombined, Globe2, Leaf } from "lucide-react";
 import { Brand, Breadcrumb, CTA, PageHero } from "../components/Shared";
 import { Reveal } from "../components/Reveal";
 import { Statistics } from "../components/Statistics";
+import { visualAssets } from "../data/site";
 
 const values = [
   { icon: BadgeCheck, label: "信頼" },
@@ -16,7 +17,8 @@ export default function About() {
       <PageHero
         title="私たちについて"
         english="ABOUT US"
-        image="hero-about.webp"
+        image={visualAssets.about}
+        variant="about"
       />
       <Breadcrumb current="私たちについて" />
       <section className="about-intro container">
@@ -68,11 +70,11 @@ export default function About() {
         </Reveal>
         <Reveal className="philosophy-image" delay={0.1}>
           <img
-            src="/images/hero-contact.webp"
+            src={`/images/${visualAssets.about}`}
             alt="陽の光と豊かな緑が調和する建築空間"
             loading="lazy"
-            width="377"
-            height="218"
+            width="1672"
+            height="941"
           />
         </Reveal>
       </section>
@@ -89,7 +91,7 @@ export default function About() {
       <CTA
         inline
         title="ともに、次の時代の価値を創る。"
-        image="contact-lounge.webp"
+        image={visualAssets.contact}
       />
     </>
   );

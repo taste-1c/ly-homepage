@@ -8,6 +8,7 @@ import {
 import { useRef, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Reveal } from "./Reveal";
+import { visualAssets } from "../data/site";
 
 export function Brand({ large = false }: { large?: boolean }) {
   return (
@@ -60,13 +61,18 @@ export function PageHero({
   title,
   english,
   image,
+  variant,
 }: {
   title: string;
   english: string;
   image: string;
+  variant?: "about" | "services" | "contact";
 }) {
   return (
-    <section className="page-hero" aria-label={title}>
+    <section
+      className={`page-hero ${variant ? `page-hero--${variant}` : ""}`}
+      aria-label={title}
+    >
       <img
         className="page-hero-image"
         src={`/images/${image}`}
@@ -104,10 +110,11 @@ export function Breadcrumb({ current }: { current: string }) {
 export function CTA({
   title,
   description,
-  image = "strength-night.webp",
+  image = visualAssets.night,
   to = "/contact",
   label = "お問い合わせ",
   inline = false,
+  className = "",
 }: {
   title: ReactNode;
   description?: string;
@@ -115,6 +122,7 @@ export function CTA({
   to?: string;
   label?: string;
   inline?: boolean;
+  className?: string;
 }) {
   const ref = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
@@ -126,7 +134,7 @@ export function CTA({
   return (
     <section
       ref={ref}
-      className={`cta-band ${inline ? "cta-band--inline" : ""}`}
+      className={`cta-band ${inline ? "cta-band--inline" : ""} ${className}`}
     >
       <motion.img
         style={{ y: reduced ? 0 : y }}

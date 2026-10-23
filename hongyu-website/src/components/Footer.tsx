@@ -13,13 +13,16 @@ export function Footer() {
           <Brand />
           <p className="footer-tagline">日本の不動産価値を、次の世代へ。</p>
         </div>
-        <nav aria-label="フッターナビゲーション">
-          {navigation.map((item) => (
-            <Link key={item.path} to={item.path}>
-              {item.label}
-            </Link>
-          ))}
-        </nav>
+        <div className="footer-navigation">
+          <p className="footer-nav-heading">サイト案内</p>
+          <nav aria-label="フッターナビゲーション">
+            {navigation.map((item) => (
+              <Link key={item.path} to={item.path}>
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
         <button
           className="back-top"
           type="button"
@@ -38,7 +41,6 @@ export function Footer() {
         <small>
           © {new Date().getFullYear()} HONGYU INC. All rights reserved.
         </small>
-        <span>プライバシーポリシー：準備中</span>
       </div>
     </footer>
   );

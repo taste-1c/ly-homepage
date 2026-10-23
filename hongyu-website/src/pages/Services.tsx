@@ -1,5 +1,5 @@
-import { services } from "../data/site";
-import { Breadcrumb, CTA, PageHero } from "../components/Shared";
+import { services, visualAssets } from "../data/site";
+import { Breadcrumb, ButtonLink, CTA, PageHero } from "../components/Shared";
 import { Reveal } from "../components/Reveal";
 import { Accordion } from "../components/Accordion";
 
@@ -9,7 +9,8 @@ export default function Services() {
       <PageHero
         title="事業内容"
         english="OUR BUSINESS"
-        image="hero-services.webp"
+        image={visualAssets.services}
+        variant="services"
       />
       <Breadcrumb current="事業内容" />
       <div className="service-list container">
@@ -46,6 +47,9 @@ export default function Services() {
                   ))}
                 </ul>
               </Accordion>
+              <ButtonLink className="service-contact-link" to={`/contact?topic=${service.id}`}>
+                この事業について相談する
+              </ButtonLink>
             </Reveal>
           </section>
         ))}
@@ -53,7 +57,7 @@ export default function Services() {
       <CTA
         title="まずはお話を聞かせてください。"
         description="開発・運用・管理・海外支援。ご要望に合わせたご提案を。"
-        image="hero-main.webp"
+        image={visualAssets.night}
       />
     </>
   );
