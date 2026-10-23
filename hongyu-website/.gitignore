@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.local
+*.tsbuildinfo
+*.log
+.playwright-cli/
+output/
+验收记录.md

@@ -8,7 +8,7 @@ export const company = {
   email: "info@hongyu.jp",
   hours: "平日 9:00–18:00（JST）",
   languages: "日本語・英語・中国語",
-  // 来源：外层 source-html。联系方式和经营数据尚未经过企业确认。
+  // 来源：企业提供的原始文案。联系方式和经营数据尚未经过企业确认。
   verifyBeforeLaunch: true,
   contactEndpoint: null,
   privacyPolicyUrl: null,
@@ -115,7 +115,7 @@ export const strengths = [
   },
 ];
 
-// 数值来自 source-html/index.html，非设计图中的示意数字。
+// 数值来自提供的原始文案，非设计图中的示意数字。
 export const statistics = [
   {
     value: 2009,

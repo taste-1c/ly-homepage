@@ -1,13 +1,14 @@
 # 鴻宇株式会社四页面官网
 
-本工程位于 `网站开发/`，使用 Vite、React、TypeScript、React Router、Tailwind CSS、Motion、Lucide、React Hook Form 和 Zod。网站界面使用日文，开发说明使用中文。
+本工程位于 `hongyu-website/`，使用 Vite、React、TypeScript、React Router、Tailwind CSS、Motion、Lucide、React Hook Form 和 Zod。网站界面使用日文，开发说明使用中文。工程可独立运行，无需外层设计图或文案资料。
 
 ## 启动与构建
 
-要求 Node.js 22.12 或以上版本。在本目录运行：
+要求 Node.js 22.12 或以上版本。从仓库根目录运行：
 
 ```powershell
-npm install
+cd hongyu-website
+npm ci
 npm run dev
 ```
 
@@ -35,11 +36,11 @@ npm run preview
 
 `src/hooks/useRouteEffects.ts` 负责页面标题、描述、页面切换焦点与滚动定位。业务锚点为 `/services#development`、`#investment`、`#management`、`#global`，目标区块为固定导航预留了滚动间距。
 
-## 外层资料与素材
+## 图片素材与独立运行
 
-Vite 的 `publicDir` 指向 `../public`：开发期间直接读取外层素材，代码使用 `/images/文件名`。无需复制图片进入源码目录；构建时 Vite 会将公共资源写入 `dist/images/`。请保留 `网站开发/` 与外层 `public/` 的相邻关系。
+网站实际使用的 12 个图片文件已放在本工程的 `public/images/`，代码通过 `/images/文件名` 引用。Vite 使用工程内部默认的 `public/`，构建时将资源写入 `dist/images/`。
 
-外层的 `source-html/` 用于提取原始日文文案，不作为可执行旧站引入。`design-reference.png`、四张 `references/page-*.png` 和新增的展板用于视觉校准，不作为网页背景。所有图片均复用外层已有资源，未生成或下载新的照片。字体通过 npm 包自托管，页面运行时不依赖 Google Fonts。
+所有图片均复用原有素材，未生成或下载新的照片。日文文案已整理进 `src/data/site.ts` 与页面组件。字体通过 npm 包自托管，页面运行时不依赖 Google Fonts。
 
 | 页面用途 | 图片 |
 | --- | --- |
@@ -53,8 +54,6 @@ Vite 的 `publicDir` 指向 `../public`：开发期间直接读取外层素材�
 | 联系页首屏 | `hero-contact.webp` |
 | 底部摄影横幅 | `strength-night.webp`、`contact-lounge.webp`、`hero-main.webp` |
 | 品牌标识 | `logo-mark.svg` |
-
-已逐张检查实际图片内容。原包的 `business-investment.webp` 实为城市、`business-management.webp` 实为室内、`business-global.webp` 实为地球网络图，因此根据设计图的实际主题，改用现有同类素材，未仅按文件名机械映射。首页强项的全球网络图和业务区的城市图分别展示。
 
 ## 动效与交互
 
@@ -75,8 +74,8 @@ Vite 的 `publicDir` 指向 `../public`：开发期间直接读取外层素材�
 6. 原资料中的税务、法律等表述没有作为未经核实的专业资质或收益保证展示。正式发布前应由企业审核业务范围与全部文案。
 7. 部分 WebP 是低分辨率概念素材，已通过裁切和蒙层改善展示；正式上线前应审核清晰度与图片使用权。
 
-## 检查产物
+## 仓库范围
 
-桌面和手机完整页面截图存放在 `output/playwright/`。检查结果见同目录工程文件 `验收记录.md`。最终四页的桌面、手机截图和手机菜单截图保留在仓库中；`node_modules/`、`dist/`、检查脚本、日志和其他临时截图通过本工程 `.gitignore` 排除。
+仓库仅保留网站源码、运行与构建配置、依赖锁文件、运行说明和实际使用的 12 个图片文件。设计参考、原始 HTML、未使用素材、验收截图、检查脚本、日志、`node_modules/` 与 `dist/` 均不上传。
 
 Git 提交与推送仅在用户明确授权后执行。
