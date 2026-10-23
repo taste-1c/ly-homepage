@@ -1,20 +1,13 @@
-import { ArrowUp } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useReducedMotion } from "motion/react";
 import { navigation } from "../data/site";
 import { Brand } from "./Shared";
 
 export function Footer() {
-  const reduced = useReducedMotion();
   return (
     <footer className="site-footer">
       <div className="container footer-top">
-        <div>
-          <Brand />
-          <p className="footer-tagline">日本の不動産価値を、次の世代へ。</p>
-        </div>
+        <Brand />
         <div className="footer-navigation">
-          <p className="footer-nav-heading">サイト案内</p>
           <nav aria-label="フッターナビゲーション">
             {navigation.map((item) => (
               <Link key={item.path} to={item.path}>
@@ -23,19 +16,6 @@ export function Footer() {
             ))}
           </nav>
         </div>
-        <button
-          className="back-top"
-          type="button"
-          aria-label="ページの先頭へ戻る"
-          onClick={() =>
-            window.scrollTo({
-              top: 0,
-              behavior: reduced ? "instant" : "smooth",
-            })
-          }
-        >
-          <ArrowUp size={20} strokeWidth={1.2} />
-        </button>
       </div>
       <div className="container footer-bottom">
         <small>

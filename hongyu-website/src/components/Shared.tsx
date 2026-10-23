@@ -66,7 +66,7 @@ export function PageHero({
   title: string;
   english: string;
   image: string;
-  variant?: "about" | "services" | "contact";
+  variant?: "about" | "services";
 }) {
   return (
     <section
@@ -111,17 +111,19 @@ export function CTA({
   title,
   description,
   image = visualAssets.night,
-  to = "/contact",
-  label = "お問い合わせ",
+  to,
+  label,
   inline = false,
+  imageMode = "cover",
   className = "",
 }: {
   title: ReactNode;
   description?: string;
   image?: string;
-  to?: string;
-  label?: string;
+  to: string;
+  label: string;
   inline?: boolean;
+  imageMode?: "cover" | "city-blend";
   className?: string;
 }) {
   const ref = useRef<HTMLElement>(null);
@@ -134,15 +136,21 @@ export function CTA({
   return (
     <section
       ref={ref}
-      className={`cta-band ${inline ? "cta-band--inline" : ""} ${className}`}
+      className={`cta-band ${inline ? "cta-band--inline" : ""} ${imageMode === "city-blend" ? "cta-band--city-blend" : ""} ${className}`}
     >
-      <motion.img
-        style={{ y: reduced ? 0 : y }}
-        className="cta-image"
-        src={`/images/${image}`}
-        alt=""
-        loading="lazy"
-      />
+      {imageMode === "city-blend" ? (
+        <div className="cta-city-media" aria-hidden="true">
+          <img className="cta-city-image" src={`/images/${image}`} alt="" width="1983" height="793" loading="lazy" />
+        </div>
+      ) : (
+        <motion.img
+          style={{ y: reduced ? 0 : y }}
+          className="cta-image"
+          src={`/images/${image}`}
+          alt=""
+          loading="lazy"
+        />
+      )}
       <div className="cta-shade" />
       <Reveal className="container cta-content">
         <div>

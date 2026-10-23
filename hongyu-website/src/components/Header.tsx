@@ -3,7 +3,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { NavLink } from "react-router-dom";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { navigation } from "../data/site";
-import { Brand, ButtonLink } from "./Shared";
+import { Brand } from "./Shared";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -74,9 +74,6 @@ export function Header() {
             ))}
           </nav>
           <div className="header-actions">
-            <ButtonLink to="/contact" className="header-cta">
-              お問い合わせ
-            </ButtonLink>
             <button
               ref={toggleRef}
               className="menu-toggle"

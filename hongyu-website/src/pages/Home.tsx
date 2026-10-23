@@ -1,62 +1,86 @@
-import { useRef } from "react";
-import { Link } from "react-router-dom";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { useRef, useState } from "react";
+import { ArrowDown } from "lucide-react";
 import {
   motion,
   useReducedMotion,
   useScroll,
   useTransform,
+  type MotionStyle,
 } from "motion/react";
-import { company, services, strengths, visualAssets } from "../data/site";
-import { ButtonLink, CTA, SectionHeading } from "../components/Shared";
-import { Reveal } from "../components/Reveal";
-import { Approach } from "../components/Approach";
+import { company, visualAssets } from "../data/site";
+import { ButtonLink, CTA } from "../components/Shared";
+import { HomeSections } from "../components/HomeSections";
+import "../styles/home.css";
 
 export default function Home() {
   const heroRef = useRef<HTMLElement>(null);
   const reduced = useReducedMotion();
+  const [imageReady, setImageReady] = useState(false);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
   });
   const y = useTransform(scrollYProgress, [0, 1], [0, 45]);
+  const enter = (delay: number, duration = 0.65) => ({
+    initial: reduced ? (false as const) : { opacity: 0, y: 24 },
+    animate: {
+      opacity: reduced || imageReady ? 1 : 0,
+      y: reduced || imageReady ? 0 : 24,
+    },
+    transition: {
+      duration: reduced ? 0 : duration,
+      delay: reduced ? 0 : delay,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  });
   return (
     <>
       <section ref={heroRef} className="home-hero">
-        <motion.img
-          className="home-hero-image"
-          style={{ y: reduced ? 0 : y }}
-          src="/images/hero-main.webp"
-          alt="東京タワーを望む街並みと、朝の光が差し込むガラス張りのテラス"
-          fetchPriority="high"
-          width="1672"
-          height="941"
-        />
+        <motion.div
+          className="home-hero-media"
+          style={{ "--hero-parallax-y": y } as MotionStyle}
+        >
+          <motion.img
+            className="home-hero-image"
+            initial={reduced ? false : { opacity: 0, scale: 1.04 }}
+            animate={{
+              opacity: reduced || imageReady ? 1 : 0,
+              scale: reduced || imageReady ? 1 : 1.04,
+            }}
+            transition={{ duration: reduced ? 0 : 1.5, ease: "easeOut" }}
+            onLoad={() => setImageReady(true)}
+            src="/images/hero-main.webp"
+            alt="東京タワーを望む街並みと、朝の光が差し込むガラス張りのテラス"
+            fetchPriority="high"
+            width="1672"
+            height="941"
+          />
+        </motion.div>
         <div className="home-hero-shade" />
-        <div className="hero-side-label" aria-hidden="true">
-          HONGYU — TOKYO, JAPAN
-        </div>
         <div className="container home-hero-content">
           <div className="home-hero-copy">
-            <Reveal delay={0.06}>
-              <span className="eyebrow hero-eyebrow">HONGYU INC.</span>
-            </Reveal>
-            <Reveal delay={0.16}>
+            <div>
               <h1>
-                日本の街に、
+                <motion.span className="hero-title-line" {...enter(0.32, 0.9)}>
+                  日本の街に、
+                </motion.span>
                 <br />
-                次世代の価値を創る。
+                <motion.span className="hero-title-line" {...enter(0.5, 0.9)}>
+                  次世代の価値を創る。
+                </motion.span>
               </h1>
-            </Reveal>
-            <Reveal delay={0.25}>
-              <p className="hero-business-line">
+            </div>
+            <div>
+              <motion.p className="hero-business-line" {...enter(0.72)}>
                 不動産開発 <span>×</span> 投資運用 <span>×</span> 資産管理
-              </p>
-              <p className="hero-description">{company.description}</p>
-            </Reveal>
-            <Reveal delay={0.34}>
+              </motion.p>
+              <motion.p className="hero-description" {...enter(0.92)}>
+                {company.description}
+              </motion.p>
+            </div>
+            <motion.div {...enter(1.16, 0.7)}>
               <ButtonLink to="/services">事業内容を見る</ButtonLink>
-            </Reveal>
+            </motion.div>
           </div>
         </div>
         <a
@@ -70,97 +94,21 @@ export default function Home() {
           </span>
         </a>
       </section>
-      <section id="strengths" className="strengths-section section-space">
-        <div className="container">
-          <Reveal>
-            <SectionHeading english="OUR STRENGTHS">鴻宇の強み</SectionHeading>
-          </Reveal>
-          <div className="strength-grid">
-            {strengths.map((item, index) => (
-              <Reveal key={item.number} delay={index * 0.1}>
-                <Link
-                  to={`/services#${item.target}`}
-                  className={`strength-card group ${item.target === "global" ? "strength-card--global" : ""}`}
-                >
-                  <div className="image-frame">
-                    <img
-                      src={`/images/${item.image}`}
-                      alt={item.alt}
-                      loading="lazy"
-                      width="576"
-                      height="290"
-                    />
-                  </div>
-                  <div className="strength-card-body">
-                    <span className="card-number">
-                      {item.number}
-                      <span />
-                    </span>
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
-                    <ArrowRight
-                      className="card-arrow"
-                      size={18}
-                      strokeWidth={1.2}
-                      aria-hidden="true"
-                    />
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal>
-            <Approach />
-          </Reveal>
-        </div>
-      </section>
-      <section className="business-section">
-        <div className="container">
-          <Reveal>
-            <SectionHeading english="BUSINESS">事業内容</SectionHeading>
-          </Reveal>
-          <div className="business-grid">
-            {services.map((service, index) => (
-              <Reveal key={service.id} delay={index * 0.1}>
-                <Link
-                  to={`/services#${service.id}`}
-                  className="business-link group"
-                >
-                  <div className="image-frame">
-                    <img
-                      src={`/images/${service.image}`}
-                      alt={service.alt}
-                      loading="lazy"
-                      width="576"
-                      height="330"
-                    />
-                  </div>
-                  <div className="business-link-label">
-                    <h3>{service.title}</h3>
-                    <ArrowRight
-                      size={19}
-                      strokeWidth={1.2}
-                      aria-hidden="true"
-                    />
-                  </div>
-                </Link>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HomeSections />
       <CTA
-        className="home-cta"
+        className="home-cta home-vision-banner"
+        imageMode="city-blend"
         image={visualAssets.night}
         title={
           <>
-            持続可能な街づくりと、
+            創造する長期価値、
             <br />
-            次世代の資産価値を。
+            都市と未来をつなぐ。
           </>
         }
-        to="/about"
-        label="私たちについて"
+        description="その土地にふさわしい価値を育み、世代を超えて残る街と資産へ。"
+        to="/about#philosophy"
+        label="私たちの理念を見る"
       />
     </>
   );

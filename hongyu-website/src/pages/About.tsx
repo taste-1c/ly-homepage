@@ -1,7 +1,6 @@
 import { BadgeCheck, ChartNoAxesCombined, Globe2, Leaf } from "lucide-react";
 import { Brand, Breadcrumb, CTA, PageHero } from "../components/Shared";
 import { Reveal } from "../components/Reveal";
-import { Statistics } from "../components/Statistics";
 import { visualAssets } from "../data/site";
 
 const values = [
@@ -54,8 +53,7 @@ export default function About() {
           <span>TOKYO, JAPAN</span>
         </Reveal>
       </section>
-      <Statistics />
-      <section className="philosophy-section container">
+      <section id="philosophy" className="philosophy-section container">
         <Reveal className="philosophy-copy">
           <span className="eyebrow">PHILOSOPHY</span>
           <h2>私たちの想い</h2>
@@ -90,8 +88,10 @@ export default function About() {
       </section>
       <CTA
         inline
-        title="ともに、次の時代の価値を創る。"
-        image={visualAssets.contact}
+        title="価値を育み、次の時代へ。"
+        image={visualAssets.lounge}
+        to="/services"
+        label="事業内容を知る"
       />
     </>
   );

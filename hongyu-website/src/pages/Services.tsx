@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+import { ArrowDown } from "lucide-react";
 import { services, visualAssets } from "../data/site";
-import { Breadcrumb, ButtonLink, CTA, PageHero } from "../components/Shared";
+import { Breadcrumb, CTA, PageHero } from "../components/Shared";
 import { Reveal } from "../components/Reveal";
 import { Accordion } from "../components/Accordion";
 
@@ -13,6 +15,15 @@ export default function Services() {
         variant="services"
       />
       <Breadcrumb current="事業内容" />
+      <nav className="business-index container" aria-label="事業一覧">
+        {services.map((service) => (
+          <Link key={service.id} to={`/services#${service.id}`}>
+            <span>{service.number}</span>
+            <strong>{service.title}</strong>
+            <ArrowDown size={16} strokeWidth={1.2} aria-hidden="true" />
+          </Link>
+        ))}
+      </nav>
       <div className="service-list container">
         {services.map((service) => (
           <section
@@ -40,24 +51,30 @@ export default function Services() {
             </Reveal>
             <Reveal className="service-copy" delay={0.08}>
               <p>{service.description}</p>
-              <Accordion title="詳細を見る" variant="service">
+              <Accordion title="事業の取り組みを見る">
                 <ul>
                   {service.details.map((detail) => (
                     <li key={detail}>{detail}</li>
                   ))}
                 </ul>
               </Accordion>
-              <ButtonLink className="service-contact-link" to={`/contact?topic=${service.id}`}>
-                この事業について相談する
-              </ButtonLink>
             </Reveal>
           </section>
         ))}
       </div>
       <CTA
-        title="まずはお話を聞かせてください。"
-        description="開発・運用・管理・海外支援。ご要望に合わせたご提案を。"
+        title={
+          <>
+            街と資産の可能性を、
+            <br className="mobile-break" />
+            次の時代へ。
+          </>
+        }
+        description="開発から運用・管理まで、長期的な視点で価値を育みます。"
         image={visualAssets.night}
+        imageMode="city-blend"
+        to="/about#philosophy"
+        label="私たちの理念を知る"
       />
     </>
   );

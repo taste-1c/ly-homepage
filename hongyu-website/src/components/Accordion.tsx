@@ -5,17 +5,15 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 export function Accordion({
   title,
   children,
-  variant = "faq",
 }: {
   title: string;
   children: ReactNode;
-  variant?: "faq" | "service";
 }) {
   const [open, setOpen] = useState(false);
   const id = useId();
   const reduced = useReducedMotion();
   return (
-    <div className={`accordion accordion--${variant} ${open ? "is-open" : ""}`}>
+    <div className={`accordion accordion--service ${open ? "is-open" : ""}`}>
       <h3>
         <button
           id={`button-${id}`}
@@ -24,9 +22,7 @@ export function Accordion({
           aria-controls={`panel-${id}`}
           onClick={() => setOpen(!open)}
         >
-          <span>
-            {variant === "service" ? (open ? "詳細を閉じる" : title) : title}
-          </span>
+          <span>{open ? "詳細を閉じる" : title}</span>
           <ChevronDown size={17} strokeWidth={1.4} aria-hidden="true" />
         </button>
       </h3>
