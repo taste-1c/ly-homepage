@@ -1,0 +1,1 @@
+请从零完成鴻宇株式会社的日文四页面官网。当前项目是空目录，所有资料已放在工作目录。先阅读根目录 CODEX_PROMPT.md、design-reference.png、references/page-*.png、source-html/*.html，然后直接创建并运行 Vite + React + TypeScript 项目，复刻四栏参考设计。最重要的新要求：首页 Hero 一定使用 /images/hero-main.webp（用户最新指定的东京城市+玻璃豪宅高清图片），CSS 给左侧增加深绿渐变遮罩以保证日文白字清晰，右边保留建筑露台。其它页面复用 public/images 现有素材，不生成图片，不找外链图，不虚构数据。完成后运行 build 并检查桌面/手机截图、路由、表单、FAQ、菜单和动画。请不要只给方案，直接执行并交付可运行项目。
