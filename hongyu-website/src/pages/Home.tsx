@@ -101,9 +101,9 @@ export default function Home() {
         image={visualAssets.night}
         title={
           <>
-            創造する長期価値、
+            土地の価値を育み、
             <br />
-            都市と未来をつなぐ。
+            街の未来へつなぐ。
           </>
         }
         description="その土地にふさわしい価値を育み、世代を超えて残る街と資産へ。"

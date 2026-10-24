@@ -41,7 +41,7 @@ export function HomeSections() {
         <div className="container brand-value-layout">
           <Reveal className="brand-value-copy">
             <span className="eyebrow">BRAND VALUE</span>
-            <h2 id="brand-value-heading">長期主義で、<br />都市の価値を育てる。</h2>
+            <h2 id="brand-value-heading">長期的な視点で、<br />都市の価値を育てる。</h2>
             <p>都市の変化を見つめ、その土地にふさわしい価値を考える。鴻宇は、不動産の開発・投資運用・資産管理を一つの流れで捉え、街と資産の未来に向き合います。</p>
             <p>つくるときも、育てるときも。持続可能な視点を大切に、世代を超えて残る価値を目指します。</p>
             <ButtonLink to="/about">私たちについて</ButtonLink>
@@ -73,7 +73,7 @@ export function HomeSections() {
                   <div className="core-business-image"><img src={`/images/${service.image}`} alt={service.alt} loading="lazy" width="1672" height={service.id === "global" ? "669" : "941"} /></div>
                   <div className="core-business-copy">
                     <span className="core-business-label">{businessCopy[index].label}</span>
-                    <h3>{service.id === "global" ? "海外投資家サポート" : service.title}</h3>
+                    <h3>{service.id === "global" ? "海外投資家向け支援" : service.title}</h3>
                     <p>{businessCopy[index].description}</p>
                   </div>
                   <span className="home-card-arrow" aria-hidden="true"><ArrowRight size={16} strokeWidth={1.25} /></span>

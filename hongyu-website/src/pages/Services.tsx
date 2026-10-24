@@ -51,7 +51,7 @@ export default function Services() {
             </Reveal>
             <Reveal className="service-copy" delay={0.08}>
               <p>{service.description}</p>
-              <Accordion title="事業の取り組みを見る">
+              <Accordion title="主な業務内容を見る">
                 <ul>
                   {service.details.map((detail) => (
                     <li key={detail}>{detail}</li>
