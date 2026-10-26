@@ -19,7 +19,7 @@ export function Brand({ large = false }: { large?: boolean }) {
     >
       <img src="/images/logo-mark.svg" alt="" width="44" height="44" />
       <span className="brand-name">
-        鴻宇株式会社<small>HONGYU INC.</small>
+        鴻宇株式会社<small>KOUU INC.</small>
       </span>
     </Link>
   );
@@ -82,7 +82,7 @@ export function PageHero({
       <div className="page-hero-shade" />
       <div className="container page-hero-content">
         <Reveal>
-          <span className="eyebrow">HONGYU INC.</span>
+          <span className="eyebrow">KOUU INC.</span>
           <h1>{title}</h1>
           <span className="page-hero-english">{english}</span>
         </Reveal>

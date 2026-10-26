@@ -115,7 +115,7 @@ export function Header() {
               animate={{ y: 0 }}
               exit={{ y: reduced ? 0 : -14 }}
             >
-              <span className="eyebrow">HONGYU INC.</span>
+              <span className="eyebrow">KOUU INC.</span>
               <nav aria-label="モバイルナビゲーション">
                 {navigation.map((item) => (
                   <NavLink

@@ -19,7 +19,7 @@ export function Footer() {
       </div>
       <div className="container footer-bottom">
         <small>
-          © {new Date().getFullYear()} HONGYU INC. All rights reserved.
+          © {new Date().getFullYear()} KOUU INC. All rights reserved.
         </small>
       </div>
     </footer>

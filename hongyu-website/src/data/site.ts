@@ -7,7 +7,7 @@ export const visualAssets = {
 
 export const company = {
   name: "鴻宇株式会社",
-  englishName: "HONGYU INC.",
+  englishName: "KOUU INC.",
   description:
     "鴻宇株式会社は、開発から運用・資産管理まで一貫して手がける不動産総合企業です。土地と建物の価値を、長期的な視点で育みます。",
 };
