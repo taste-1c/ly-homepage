@@ -26,8 +26,13 @@ npm run preview
 | 顺序 | 路由 | 日文导航 | 内容 |
 | --- | --- | --- | --- |
 | 1 | `/` | ホーム | 品牌价值、核心业务、四步流程、城市视角、合作优势、品牌愿景 |
-| 2 | `/services` | 事業内容 | 四项业务索引、图文介绍、可展开的业务范围 |
-| 3 | `/about` | 私たちについて | 企业介绍、经营理念、品牌价值 |
+| 2 | `/services` | 事業紹介 | 三项核心业务、海外投资者支援与合作流程入口 |
+| 3 | `/development` | 不動産開発 | 业务介绍与主要开发领域 |
+| 4 | `/investment` | 投資運用 | 业务介绍与投资运营方向 |
+| 5 | `/management` | 資産管理 | 业务介绍与主要管理服务 |
+| 6 | `/global` | 海外投資家向け支援 | 业务介绍与多语言服务 |
+| 7 | `/process` | 私たちの進め方 | 合作流程的四个阶段 |
+| 8 | `/about` | 私たちについて | 企业介绍、经营理念、品牌价值 |
 
 PC、手机和页脚共用 `src/data/site.ts` 的导航顺序。旧 `/contact`、其子路径及 `/contact.html` 仅保留返回首页的兼容重定向，不生成独立页面。未知路径显示 404 页面，并提供返回首页入口。
 
@@ -35,19 +40,18 @@ PC、手机和页脚共用 `src/data/site.ts` 的导航顺序。旧 `/contact`�
 
 ## 代码
 
-- `src/pages/`：三个展示页面及 404 页面。
+- `src/pages/`：八个展示页面及 404 页面。
 - `src/components/Shared.tsx`：品牌标识、页面首屏、面包屑、导航按钮与品牌横幅。
-- `Header.tsx`、`Footer.tsx`：统一导航；页脚只显示品牌、三个页面链接和居中版权。
+- `Header.tsx`、`Footer.tsx`：共用八项主导航。
 - `HomeSections.tsx`：首页品牌价值、重点业务与三项业务说明、城市视角、合作优势。
 - `Approach.tsx`：洞察、企画、実行、価値向上四步展示，连接线依次点亮，手机端纵向排列；01–04 均位于对应标题旁，连接线末端不显示悬空编号。
-- `Accordion.tsx`：仅用于展示业务范围的展开收起。
 - `Reveal.tsx`：一次性的滚动渐入。
-- `src/data/site.ts`：品牌介绍、导航、四项业务和三个页面的 SEO 信息。
+- `src/data/site.ts`：品牌介绍、导航、四项业务和页面 SEO 信息。
 - `src/styles/global.css`：配色、字体、布局、响应式与动效。
 - `src/styles/home.css`：仅用于首页中段与紧凑愿景横幅的版式、交互及响应式。
 - `src/hooks/useRouteEffects.ts`：路由标题、焦点与锚点滚动。
 
-业务锚点为 `/services#development`、`#investment`、`#management`、`#global`；经营理念入口为 `/about#philosophy`。固定导航的滚动间距已预留。
+旧业务锚点 `/services#development`、`#investment`、`#management`、`#global` 继续定位到相应的图文区块。经营理念入口为 `/about#philosophy`。固定导航的滚动间距已预留。
 
 ## 图片与字体
 

@@ -16,7 +16,7 @@ export default function About() {
       <PageHero
         title="私たちについて"
         english="ABOUT US"
-        image={visualAssets.about}
+        image="关于我们-园林夕景.webp"
         variant="about"
       />
       <Breadcrumb current="私たちについて" />
@@ -91,7 +91,7 @@ export default function About() {
         title="価値を育み、次の時代へ。"
         image={visualAssets.lounge}
         to="/services"
-        label="事業内容を知る"
+        label="事業紹介を見る"
       />
     </>
   );

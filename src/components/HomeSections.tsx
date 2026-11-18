@@ -63,13 +63,13 @@ export function HomeSections() {
             <HomeHeading english="CORE BUSINESS" title="中核事業" id="core-business-heading" />
             <div className="home-section-summary">
               <p>開発を起点に、投資運用、資産管理、海外投資家への支援へ。<br className="desktop-break" />専門性をつなぎ、不動産の可能性を広げます。</p>
-              <Link className="home-text-link" to="/services">事業内容を見る<ArrowRight size={17} strokeWidth={1.3} aria-hidden="true" /></Link>
+              <Link className="home-text-link" to="/services">事業紹介を見る<ArrowRight size={17} strokeWidth={1.3} aria-hidden="true" /></Link>
             </div>
           </Reveal>
           <div className="core-business-layout">
             {services.map((service, index) => (
               <Reveal key={service.id} delay={index * 0.1} className={index === 0 ? "core-feature-wrap" : "core-detail-wrap"}>
-                <Link className={`core-business-card ${index === 0 ? "core-business-card--feature" : "core-business-card--detail"}`} to={`/services#${service.id}`}>
+                <Link className={`core-business-card ${index === 0 ? "core-business-card--feature" : "core-business-card--detail"}`} to={`/${service.id}`}>
                   <div className="core-business-image"><img src={`/images/${service.image}`} alt={service.alt} loading="lazy" width="1672" height={service.id === "global" ? "669" : "941"} /></div>
                   <div className="core-business-copy">
                     <span className="core-business-label">{businessCopy[index].label}</span>
