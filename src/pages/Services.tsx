@@ -1,67 +1,80 @@
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import { DetailCTA } from "../components/DetailLayout";
-import { Breadcrumb, PageHero } from "../components/Shared";
-import { businessDetails } from "../data/businessDetails";
-import { businessOverviewTitle, services, type Service } from "../data/site";
-
-const [development, investment, management, globalService] = services;
-const coreServices = [development, investment, management];
-
-function BusinessLink({ service }: { service: Service }) {
-  const { id, title, summary } = service;
-  const { image, imageAlt } = businessDetails[id];
-  const Heading = id === "global" ? "h2" : "h3";
-
-  return (
-    <Link
-      className="business-overview-link"
-      to={`/${id}`}
-      aria-labelledby={`${id}-heading ${id}-link-label`}
-    >
-      <div className="business-overview-image">
-        <img src={`/images/${image}`} alt={imageAlt} loading="lazy" />
-      </div>
-      <div className="business-overview-copy">
-        <Heading id={`${id}-heading`}>{title}</Heading>
-        <p>{summary}</p>
-        <span className="business-overview-action" id={`${id}-link-label`}>
-          詳しく見る
-          <ArrowRight size={16} strokeWidth={1.3} aria-hidden="true" />
-        </span>
-      </div>
-    </Link>
-  );
-}
+import { ArrowDown } from "lucide-react";
+import { services, visualAssets } from "../data/site";
+import { Breadcrumb, CTA, PageHero } from "../components/Shared";
+import { Reveal } from "../components/Reveal";
+import { Accordion } from "../components/Accordion";
 
 export default function Services() {
   return (
     <>
       <PageHero
-        title={businessOverviewTitle}
+        title="事業内容"
         english="OUR BUSINESS"
-        image="关于我们-园林夕景.webp"
+        image={visualAssets.services}
         variant="services"
       />
-      <Breadcrumb current={businessOverviewTitle} />
-      <section className="business-overview-core container" aria-labelledby="business-core-heading">
-        <h2 id="business-core-heading">中核事業</h2>
-        <ul className="business-overview-grid" role="list">
-          {coreServices.map((service) => (
-            <li key={service.id} id={service.id}>
-              <BusinessLink service={service} />
-            </li>
-          ))}
-        </ul>
-      </section>
-      <section className="business-overview-global container" id={globalService.id} aria-labelledby="global-heading">
-        <BusinessLink service={globalService} />
-      </section>
-      <DetailCTA
-        title="私たちの進め方"
-        description="ご要望の把握から企画・実行、運営まで、事業を進める四つの段階をご紹介します。"
-        to="/process"
-        label="私たちの進め方を見る"
+      <Breadcrumb current="事業内容" />
+      <nav className="business-index container" aria-label="事業一覧">
+        {services.map((service) => (
+          <Link key={service.id} to={`/services#${service.id}`}>
+            <span>{service.number}</span>
+            <strong>{service.title}</strong>
+            <ArrowDown size={16} strokeWidth={1.2} aria-hidden="true" />
+          </Link>
+        ))}
+      </nav>
+      <div className="service-list container">
+        {services.map((service) => (
+          <section
+            key={service.id}
+            id={service.id}
+            className="service-row"
+            aria-labelledby={`${service.id}-heading`}
+          >
+            <Reveal className="service-number">
+              <span>{service.number}</span>
+              <i />
+            </Reveal>
+            <Reveal className="service-heading" delay={0.04}>
+              <span className="eyebrow">BUSINESS {service.number}</span>
+              <h2 id={`${service.id}-heading`}>{service.title}</h2>
+            </Reveal>
+            <Reveal className="service-image" delay={0.12}>
+              <img
+                src={`/images/${service.image}`}
+                alt={service.alt}
+                width="576"
+                height="330"
+                loading="lazy"
+              />
+            </Reveal>
+            <Reveal className="service-copy" delay={0.08}>
+              <p>{service.description}</p>
+              <Accordion title="主な業務内容を見る">
+                <ul>
+                  {service.details.map((detail) => (
+                    <li key={detail}>{detail}</li>
+                  ))}
+                </ul>
+              </Accordion>
+            </Reveal>
+          </section>
+        ))}
+      </div>
+      <CTA
+        title={
+          <>
+            街と資産の可能性を、
+            <br className="mobile-break" />
+            次の時代へ。
+          </>
+        }
+        description="開発から運用・管理まで、長期的な視点で価値を育みます。"
+        image={visualAssets.night}
+        imageMode="city-blend"
+        to="/about#philosophy"
+        label="私たちの理念を知る"
       />
     </>
   );

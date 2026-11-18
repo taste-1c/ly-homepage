@@ -1,7 +1,6 @@
 import { useRef } from "react";
-import { ArrowRight, Compass, Layers3, Settings2, TrendingUp } from "lucide-react";
+import { Compass, Layers3, Settings2, TrendingUp } from "lucide-react";
 import { useInView, useReducedMotion } from "motion/react";
-import { Link } from "react-router-dom";
 import { Reveal } from "./Reveal";
 
 const steps = [
@@ -45,10 +44,6 @@ export function Approach() {
             </li>
           ))}
         </ol>
-        <Link className="home-text-link" to="/process">
-          進め方を詳しく見る
-          <ArrowRight size={17} strokeWidth={1.3} aria-hidden="true" />
-        </Link>
       </div>
     </section>
   );

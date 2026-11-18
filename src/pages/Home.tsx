@@ -79,7 +79,7 @@ export default function Home() {
               </motion.p>
             </div>
             <motion.div {...enter(1.16, 0.7)}>
-              <ButtonLink to="/services">事業紹介を見る</ButtonLink>
+              <ButtonLink to="/services">事業内容を見る</ButtonLink>
             </motion.div>
           </div>
         </div>

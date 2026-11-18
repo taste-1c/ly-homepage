@@ -12,7 +12,11 @@ export const company = {
     "鴻宇株式会社は、開発から運用・資産管理まで一貫して手がける不動産総合企業です。土地と建物の価値を、長期的な視点で育みます。",
 };
 
-export const businessOverviewTitle = "事業紹介";
+export const navigation = [
+  { path: "/", label: "ホーム", english: "Home" },
+  { path: "/services", label: "事業内容", english: "Our business" },
+  { path: "/about", label: "私たちについて", english: "About us" },
+];
 
 export const services = [
   {
@@ -24,7 +28,11 @@ export const services = [
     alt: "街並みと調和する緑豊かな複合ビルの建築イメージ",
     description:
       "共同住宅・商業施設・ホテル・複合ビルの企画開発を手がけます。事業用地の発掘・地盤・市場調査から、設計・施工・引渡しまで一貫して伴走します。",
-    summary: "土地の特性を生かし、地域の暮らしや需要に合う建物をつくります。",
+    details: [
+      "用地調査・事業企画・権利調整",
+      "日本国内および海外の個人投資家・法人への直接販売",
+      "竣工・リーシング・入居支援",
+    ],
   },
   {
     id: "investment",
@@ -35,7 +43,11 @@ export const services = [
     alt: "庭園とつながる落ち着いた上質なビジネス空間",
     description:
       "当社は不動産の取得・保有・運営を行います。市場動向と物件の特性を踏まえ、長期的な視点で運営方針を定め、資産価値の維持・向上に取り組みます。",
-    summary: "収益とリスクの両面から、保有する不動産の運営方針を考えます。",
+    details: [
+      "ポートフォリオ設計・資産配分",
+      "収益シミュレーション・リスク管理",
+      "保有資産の収益性・資産価値の評価",
+    ],
   },
   {
     id: "management",
@@ -46,7 +58,11 @@ export const services = [
     alt: "丁寧に維持管理された緑と建物のアプローチ",
     description:
       "物件管理・リーシングを通じて、資産価値を末永く守るサポートを提供します。日々の運営から保守計画まで、長期的な視点で資産に向き合います。",
-    summary: "物件の運営と入居者のサポートを通じ、建物を安心して使える環境を整えます。",
+    details: [
+      "プロパティマネジメント・保守計画",
+      "入居者募集・契約・クレーム対応",
+      "資産の保有・運営方針の整理",
+    ],
   },
   {
     id: "global",
@@ -57,22 +73,12 @@ export const services = [
     alt: "日本の不動産市場を象徴する東京の街並み",
     description:
       "日本の不動産に関心を持つ海外の個人投資家・法人のお客様へ。日本語・英語・中国語で自社所有物件をご紹介し、物件情報や購入の流れをご案内します。",
-    summary: "海外のお客様が日本の物件を検討できるよう、自社所有物件の情報を多言語でお伝えします。",
+    details: [
+      "多言語での物件紹介・デューデリジェンス支援",
+      "日本での投資に関する情報整理",
+      "現地パートナーとのネットワーク連携",
+    ],
   },
-] as const;
-
-export type Service = (typeof services)[number];
-
-export const navigation = [
-  { path: "/", label: "ホーム", english: "Home" },
-  { path: "/services", label: businessOverviewTitle, english: "Our business" },
-  ...services.map(({ id, title, english }) => ({
-    path: `/${id}`,
-    label: title,
-    english,
-  })),
-  { path: "/process", label: "私たちの進め方", english: "Our approach" },
-  { path: "/about", label: "私たちについて", english: "About us" },
 ];
 
 export const pageMetadata: Record<
@@ -89,19 +95,8 @@ export const pageMetadata: Record<
       "不動産の力で、持続可能な未来を創る。鴻宇株式会社の経営理念と、不動産開発・投資・管理への想いをご紹介します。",
   },
   "/services": {
-    title: `${businessOverviewTitle} | 鴻宇株式会社`,
+    title: "事業内容 | 鴻宇株式会社",
     description:
       "不動産開発・投資運用・資産管理・海外投資家向け支援。鴻宇株式会社の四つの事業をご紹介します。",
-  },
-  ...Object.fromEntries(
-    services.map(({ id, title, description }) => [
-      `/${id}`,
-      { title: `${title} | 鴻宇株式会社`, description },
-    ]),
-  ),
-  "/process": {
-    title: "私たちの進め方 | 鴻宇株式会社",
-    description:
-      "洞察・企画・実行・価値向上。土地と資産の可能性を四つの段階でつなぐ、鴻宇株式会社の事業の進め方をご紹介します。",
   },
 };

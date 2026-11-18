@@ -1,65 +1,75 @@
 import { useState } from "react";
-import { NavLink, useMatch } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { navigation } from "../data/site";
 import { Brand } from "./Shared";
 
 const contactEmail = "kouu@jenseninvest.com";
 
-function HomeContact() {
-  const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "failed">(
-    "idle",
-  );
+function FooterEmail() {
+  const [copyFeedback, setCopyFeedback] = useState("");
 
   async function copyEmail() {
+    setCopyFeedback("");
     try {
       await navigator.clipboard.writeText(contactEmail);
-      setCopyStatus("copied");
+      setCopyFeedback("コピーしました");
     } catch {
-      setCopyStatus("failed");
+      setCopyFeedback("コピーできませんでした");
     }
   }
 
   return (
-    <address className="container footer-contact">
-      <div>
-        <span className="footer-contact-label">お問い合わせ</span>
-        <div className="footer-email">
-          <span>{contactEmail}</span>
-          <button type="button" onClick={copyEmail}>
-            コピー<span className="sr-only">（メールアドレス）</span>
-          </button>
-        </div>
-        <span className="footer-copy-status" role="status">
-          {copyStatus === "copied" && "コピーしました"}
-          {copyStatus === "failed" && "コピーできませんでした"}
-        </span>
-      </div>
-      <div>
-        <span className="footer-contact-label">所在地</span>
-        渋谷区恵比寿西1－36－2
-      </div>
-    </address>
+    <div className="footer-email">
+      <span>{contactEmail}</span>
+      <button
+        className="footer-email-copy"
+        type="button"
+        aria-label="メールアドレスをコピー"
+        onClick={copyEmail}
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          aria-hidden="true"
+        >
+          <path d="M9 9h10v10H9zM15 9V5H5v10h4" />
+        </svg>
+      </button>
+      <span className="footer-email-feedback" role="status">
+        {copyFeedback}
+      </span>
+    </div>
   );
 }
 
 export function Footer() {
-  const isHome = useMatch("/");
+  const { pathname } = useLocation();
 
   return (
     <footer className="site-footer">
       <div className="container footer-top">
-        <Brand />
+        {pathname === "/" ? (
+          <div className="footer-brand">
+            <Brand />
+            <FooterEmail />
+          </div>
+        ) : (
+          <Brand />
+        )}
         <div className="footer-navigation">
           <nav aria-label="フッターナビゲーション">
             {navigation.map((item) => (
-              <NavLink key={item.path} to={item.path} end>
+              <Link key={item.path} to={item.path}>
                 {item.label}
-              </NavLink>
+              </Link>
             ))}
           </nav>
         </div>
       </div>
-      {isHome && <HomeContact />}
       <div className="container footer-bottom">
         <small>
           © {new Date().getFullYear()} KOUU INC. All rights reserved.

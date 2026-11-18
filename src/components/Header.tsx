@@ -48,9 +48,9 @@ export function Header() {
         }
       }
     };
-    const media = window.matchMedia("(max-width: 900px)");
+    const media = window.matchMedia("(min-width: 768px)");
     const onResize = () => {
-      if (!media.matches) setOpen(false);
+      if (media.matches) setOpen(false);
     };
     document.addEventListener("keydown", onKey);
     media.addEventListener("change", onResize);
