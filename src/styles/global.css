@@ -220,6 +220,9 @@ p {
   object-fit: contain;
   filter: brightness(0) invert(1);
 }
+.site-header .brand img {
+  filter: none;
+}
 .brand-name {
   display: block;
   font-family: var(--font-serif);
