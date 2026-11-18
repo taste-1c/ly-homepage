@@ -574,21 +574,15 @@ p {
 .about-signature {
   margin-top: 44px;
   display: flex;
-  align-items: center;
+}
+.brand--large {
   gap: 20px;
 }
-.brand-circle {
+.brand--large img {
   width: 72px;
   height: 72px;
-  border: 7px solid #b69a65;
-  border-right: 4px solid transparent;
-  border-top: 9px solid #a58b58;
-  border-radius: 50%;
-  transform: rotate(-35deg);
+  filter: none;
   flex-shrink: 0;
-}
-.brand--large img {
-  display: none;
 }
 .brand--large .brand-name {
   font-size: 26px;
@@ -1111,13 +1105,13 @@ p {
   .about-city-image {
     height: 500px;
   }
-  .about-signature {
+  .brand--large {
     gap: 14px;
   }
   .brand--large .brand-name {
     font-size: 23px;
   }
-  .brand-circle {
+  .brand--large img {
     width: 63px;
     height: 63px;
   }
@@ -1156,10 +1150,9 @@ p {
   .about-signature .brand-name {
     font-size: 19px;
   }
-  .about-signature .brand-circle {
+  .brand--large img {
     width: 50px;
     height: 50px;
-    border-width: 5px;
   }
   .footer-top {
     flex-wrap: wrap;
@@ -1338,9 +1331,11 @@ p {
   }
   .about-signature {
     margin-top: 28px;
+  }
+  .brand--large {
     gap: 18px;
   }
-  .brand-circle {
+  .brand--large img {
     width: 60px;
     height: 60px;
   }

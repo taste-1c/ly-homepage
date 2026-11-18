@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { DetailCTA } from "../components/DetailLayout";
 import { Breadcrumb, PageHero } from "../components/Shared";
 import { businessDetails } from "../data/businessDetails";
-import { businessOverviewTitle, services, visualAssets, type Service } from "../data/site";
+import { businessOverviewTitle, services, type Service } from "../data/site";
 
 const [development, investment, management, globalService] = services;
 const coreServices = [development, investment, management];
@@ -40,7 +40,7 @@ export default function Services() {
       <PageHero
         title={businessOverviewTitle}
         english="OUR BUSINESS"
-        image={visualAssets.services}
+        image="关于我们-园林夕景.webp"
         variant="services"
       />
       <Breadcrumb current={businessOverviewTitle} />

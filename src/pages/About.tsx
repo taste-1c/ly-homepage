@@ -3,6 +3,8 @@ import { Brand, Breadcrumb, CTA, PageHero } from "../components/Shared";
 import { Reveal } from "../components/Reveal";
 import { visualAssets } from "../data/site";
 
+const gardenImage = "关于我们-园林夕景.webp";
+
 const values = [
   { icon: BadgeCheck, label: "信頼" },
   { icon: ChartNoAxesCombined, label: "専門性" },
@@ -16,7 +18,7 @@ export default function About() {
       <PageHero
         title="私たちについて"
         english="ABOUT US"
-        image="关于我们-园林夕景.webp"
+        image={gardenImage}
         variant="about"
       />
       <Breadcrumb current="私たちについて" />
@@ -38,7 +40,6 @@ export default function About() {
             鴻宇は、開発・投資・管理の知見を一つに結集し、オーナー様一人ひとりの目的に寄り添った提案を行います。
           </p>
           <div className="about-signature">
-            <span className="brand-circle" aria-hidden="true" />
             <Brand large />
           </div>
         </Reveal>
@@ -68,11 +69,11 @@ export default function About() {
         </Reveal>
         <Reveal className="philosophy-image" delay={0.1}>
           <img
-            src={`/images/${visualAssets.about}`}
-            alt="陽の光と豊かな緑が調和する建築空間"
+            src={`/images/${gardenImage}`}
+            alt="夕暮れの庭園"
             loading="lazy"
-            width="1672"
-            height="941"
+            width="1916"
+            height="821"
           />
         </Reveal>
       </section>
