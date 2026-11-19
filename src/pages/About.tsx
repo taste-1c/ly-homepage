@@ -144,6 +144,10 @@ export default function About() {
           {t("代表メッセージ", "代表致辞")}
           <ArrowRight size={16} strokeWidth={1.4} aria-hidden="true" />
         </Link>
+        <Link className="body-page-link" to="/organization">
+          {t("組織体制", "组织架构")}
+          <ArrowRight size={16} strokeWidth={1.4} aria-hidden="true" />
+        </Link>
       </nav>
       <CTA
         inline

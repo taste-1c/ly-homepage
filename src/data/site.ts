@@ -83,6 +83,7 @@ export const headerNavigation = [
     labelZh: "企业信息",
     links: [
       { path: "/message", label: "代表メッセージ", labelZh: "代表致辞" },
+      { path: "/organization", label: "組織体制", labelZh: "组织架构" },
       { path: "/about", label: "私たちについて", labelZh: "关于我们" },
     ],
   },
@@ -131,6 +132,12 @@ export const pageMetadata: Record<
     description: "鴻宇株式会社の代表取締役から、不動産事業への考え方と今後の展望をお伝えします。",
     titleZh: "代表致辞 | 鸿宇株式会社",
     descriptionZh: "阅读鸿宇株式会社代表董事关于房地产业务理念和未来发展方向的致辞。",
+  },
+  "/organization": {
+    title: "組織体制 | 鴻宇株式会社",
+    description: "鴻宇株式会社の各部門と所属チームを、組織図でご紹介します。",
+    titleZh: "组织架构 | 鸿宇株式会社",
+    descriptionZh: "了解鸿宇株式会社的组织架构、各部门及其下属团队。",
   },
   "/contact": {
     title: "お問い合わせ | 鴻宇株式会社",

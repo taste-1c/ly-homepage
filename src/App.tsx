@@ -15,6 +15,7 @@ const Properties = lazy(() => import("./pages/Properties"));
 const PropertyCategory = lazy(() => import("./pages/PropertyCategory"));
 const PropertyDetail = lazy(() => import("./pages/PropertyDetail"));
 const RepresentativeMessage = lazy(() => import("./pages/RepresentativeMessage"));
+const Organization = lazy(() => import("./pages/Organization"));
 const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -34,6 +35,7 @@ function PageRoutes() {
       ))}
       <Route path="/properties/:slug" element={<PropertyDetail />} />
       <Route path="/message" element={<RepresentativeMessage />} />
+      <Route path="/organization" element={<Organization />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/contact/*" element={<Navigate to="/contact" replace />} />

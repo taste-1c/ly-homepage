@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Copy } from "lucide-react";
-import { NavLink, useMatch } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { contactEmail } from "../data/contact";
 import { headerNavigation } from "../data/site";
 import { useLanguage } from "../i18n";
@@ -9,7 +9,8 @@ import "../styles/footer.css";
 
 export function Footer() {
   const { t } = useLanguage();
-  const aboutMatch = useMatch("/about/*");
+  const { pathname } = useLocation();
+  const currentPath = pathname.toLowerCase().replace(/\/+$/, "");
   const [corporateOpen, setCorporateOpen] = useState(false);
   const corporateGroupRef = useRef<HTMLDivElement>(null);
   const corporateToggleRef = useRef<HTMLButtonElement>(null);
@@ -70,7 +71,7 @@ export function Footer() {
                 }}
               >
                 <button
-                  className={`footer-nav-toggle${aboutMatch ? " active" : ""}`}
+                  className={`footer-nav-toggle${item.links.some((link) => link.path === currentPath) ? " active" : ""}`}
                   id="footer-corporate-toggle"
                   type="button"
                   ref={corporateToggleRef}

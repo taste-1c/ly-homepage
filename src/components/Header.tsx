@@ -10,7 +10,7 @@ import {
 } from "react";
 import { AnimatePresence, motion, useIsPresent, useReducedMotion } from "motion/react";
 import { NavLink, useLocation } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, Building2, ChevronDown, Menu, MessageSquareText, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Building2, ChevronDown, Menu, MessageSquareText, Network, X } from "lucide-react";
 import { propertyCategories, propertyCategoryIds } from "../data/properties";
 import { headerNavigation } from "../data/site";
 import { useLanguage } from "../i18n";
@@ -24,6 +24,7 @@ type OpenDropdown = { kind: DropdownKind; source: "hover" | "button" } | null;
 
 const corporateIcons = {
   "/message": MessageSquareText,
+  "/organization": Network,
   "/about": Building2,
 };
 
