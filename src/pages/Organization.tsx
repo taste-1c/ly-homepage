@@ -47,21 +47,30 @@ export default function Organization() {
         variant="services"
       />
       <Breadcrumb current={title} />
-      <section className="organization-chart container" aria-label={t("組織図", "组织结构图")}>
-        <h2 className="organization-lead">{t("代表取締役", "代表董事")}</h2>
-        <ul className="organization-branches" role="list" aria-label={t("代表取締役の直属組織", "代表董事直属单位")}>
-          {directReports.map(({ name, units }) => (
-            <li className="organization-branch" key={name.ja}>
-              <h3>{t(name.ja, name.zh)}</h3>
-              <ul className="organization-units" role="list">
-                {units.map(({ ja, zh }) => (
-                  <li key={ja}>{t(ja, zh)}</li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
-      </section>
+      <div className="organization-chart container">
+        <p className="organization-scroll-hint">
+          {t("横にスクロールして組織図全体を表示", "左右滑动查看完整组织图")}
+        </p>
+        <section className="organization-scroll" aria-label={t("組織図", "组织结构图")} tabIndex={0}>
+          <div className="organization-diagram">
+            <h2 className="organization-lead">{t("代表取締役", "代表董事")}</h2>
+            <ul className="organization-branches" role="list" aria-label={t("代表取締役の直属組織", "代表董事直属单位")}>
+              {directReports.map(({ name, units }) => (
+                <li className="organization-branch" key={name.ja}>
+                  <h3>{t(name.ja, name.zh)}</h3>
+                  <ul className="organization-units" role="list">
+                    {units.map(({ ja, zh }) => (
+                      <li key={ja}>
+                        <span>{t(ja, zh)}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      </div>
     </>
   );
 }
