@@ -1,0 +1,29 @@
+.language-switcher {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 3px;
+}
+
+.language-switcher > span {
+  color: #fff8;
+  font-size: 11px;
+}
+
+.language-switcher button {
+  min-height: 44px;
+  padding-inline: 5px;
+  color: #fffc;
+  font-size: 12px;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.language-switcher button:hover {
+  color: #fff;
+}
+
+.language-switcher button[aria-pressed="true"] {
+  color: #f0d8a8;
+  font-weight: 600;
+}

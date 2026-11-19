@@ -1,0 +1,123 @@
+.contact-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(28px, 4.5vw, 60px);
+  max-width: 860px;
+  padding-block: clamp(32px, 5vw, 72px) clamp(64px, 8vw, 120px);
+}
+
+.contact-intro > p {
+  color: var(--pine);
+  font-size: clamp(16px, 1.4vw, 19px);
+}
+
+.contact-intro > p + p {
+  margin-top: 12px;
+  color: #555d54;
+  font-size: 14px;
+}
+
+.contact-method {
+  border-block: 1px solid var(--line);
+  padding-block: clamp(20px, 3vw, 34px) clamp(28px, 4vw, 42px);
+}
+
+.contact-method h2 {
+  color: var(--pine);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+
+.contact-method h2 span {
+  color: var(--gold-dark);
+}
+
+.contact-email-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  margin-top: 8px;
+  color: var(--pine);
+  font-size: clamp(22px, 2.65vw, 33px);
+}
+
+.contact-email {
+  min-width: 0;
+  padding-block: 6px;
+  font-family: var(--font-serif);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  text-decoration: underline var(--gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.contact-email:is(:hover, :focus-visible) {
+  text-decoration-color: currentColor;
+}
+
+.contact-email-copy {
+  display: inline-grid;
+  flex: 0 0 44px;
+  min-height: 44px;
+  place-items: center;
+  padding: 0;
+  border-radius: 2px;
+  color: inherit;
+}
+
+.contact-email-copy:is(:hover, :focus-visible) {
+  background-color: #b69a6520;
+}
+
+.contact-email-feedback {
+  position: absolute;
+  inset-block-start: 100%;
+  inset-inline-start: 0;
+  color: var(--gold-dark);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.contact-topics h2 {
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 12px;
+  color: var(--pine);
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.5;
+}
+
+.contact-topics ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-topics li {
+  display: grid;
+  grid-template-columns: 2em minmax(0, 1fr);
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding-block: 14px;
+  color: var(--pine);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.contact-topic-number {
+  color: var(--gold-dark);
+  font-family: var(--font-serif);
+  font-variant-numeric: tabular-nums;
+}
+
+.contact-topic-label span {
+  display: block;
+}
+
+.contact-topic-label span + span {
+  margin-top: 3px;
+  color: #555d54;
+  font-size: 13px;
+}

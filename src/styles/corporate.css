@@ -1,0 +1,28 @@
+.corporate-message {
+  max-width: 860px;
+  padding-block: clamp(34px, 5vw, 78px) clamp(65px, 8vw, 128px);
+}
+
+.corporate-message h2 {
+  margin-bottom: clamp(28px, 4vw, 50px);
+  color: var(--pine);
+  font-size: clamp(25px, 3vw, 38px);
+}
+
+.corporate-message p {
+  font-size: clamp(14px, 1.15vw, 16px);
+  line-height: 2.2;
+}
+
+.corporate-message p + p {
+  margin-top: 1.25em;
+}
+
+.corporate-message .corporate-message-signature {
+  margin-top: 42px;
+  border-top: 1px solid var(--line);
+  padding-top: 21px;
+  color: var(--pine);
+  font-family: var(--font-serif);
+  text-align: end;
+}

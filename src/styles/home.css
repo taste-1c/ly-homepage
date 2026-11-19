@@ -262,6 +262,10 @@
 .home-approach .home-section-intro p {
   color: #b9c9c0;
 }
+.home-approach .home-text-link {
+  margin-top: 25px;
+  color: #e1cba0;
+}
 .home-approach-steps {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -465,6 +469,16 @@
   color: var(--muted);
   font-size: 13px;
   line-height: 2;
+}
+.home-featured-properties {
+  padding-block: clamp(42px, 4.5vw, 74px);
+  background: #f3f1eb;
+  color: var(--pine);
+}
+.home-featured-properties-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: clamp(18px, 2vw, 30px);
 }
 /* 首页愿景横幅保持紧凑高度，摄影融合由共用 CTA 样式处理。 */
 .home-cta.home-vision-banner {

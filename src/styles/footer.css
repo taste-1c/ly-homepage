@@ -1,0 +1,88 @@
+.footer-top .footer-nav {
+  position: relative;
+  inset-block-start: 5px;
+}
+
+.footer-nav-group {
+  position: relative;
+  display: grid;
+}
+
+.footer-nav-toggle {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  text-align: start;
+  transition: color 0.2s;
+}
+
+.footer-nav-toggle:is(.active, :hover) {
+  color: #ddc28d;
+}
+
+.footer-corporate-links {
+  position: absolute;
+  z-index: 2;
+  inset-block-end: calc(100% + 8px);
+  inset-inline-start: 0;
+  inline-size: max-content;
+  max-inline-size: calc(100vw - 44px);
+  padding: 8px;
+  border: 1px solid #b69a6580;
+  border-radius: 4px;
+  background: #0d3230;
+  box-shadow: 0 8px 24px #0003;
+}
+
+.footer-corporate-links a {
+  display: block;
+  padding: 5px 10px;
+}
+
+.footer-email {
+  position: relative;
+}
+
+.footer-copy-button {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: calc(100% + 8px);
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  inline-size: 24px;
+  block-size: 24px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #cbd8d0;
+}
+
+.footer-copy-button:hover {
+  color: #ddc28d;
+}
+
+.footer-copy-button:focus-visible {
+  outline-offset: 2px;
+}
+
+.footer-copy-feedback {
+  position: absolute;
+  inset-block-start: calc(100% + 4px);
+  inset-inline-start: 0;
+  color: #cbd8d0;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+@media (768px <= width <= 900px) {
+  .footer-top {
+    column-gap: 12px;
+  }
+
+  .footer-top .footer-nav {
+    column-gap: 8px;
+    font-size: 11px;
+  }
+}

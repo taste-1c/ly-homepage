@@ -9,17 +9,19 @@ import { useRef, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Reveal } from "./Reveal";
 import { visualAssets } from "../data/site";
+import { useLanguage } from "../i18n";
 
 export function Brand({ large = false }: { large?: boolean }) {
+  const { t } = useLanguage();
   return (
     <Link
       to="/"
       className={`brand ${large ? "brand--large" : ""}`}
-      aria-label="鴻宇株式会社 ホーム"
+      aria-label={t("鴻宇株式会社 ホーム", "鸿宇株式会社首页")}
     >
       <img src="/images/logo-mark.svg" alt="" width="44" height="44" />
       <span className="brand-name">
-        鴻宇株式会社<small>KOUU INC.</small>
+        {t("鴻宇株式会社", "鸿宇株式会社")}<small lang="en">KOUU INC.</small>
       </span>
     </Link>
   );
@@ -49,9 +51,10 @@ export function SectionHeading({
   english: string;
   children: ReactNode;
 }) {
+  const { t } = useLanguage();
   return (
     <div className="section-heading">
-      <span className="eyebrow">{english}</span>
+      <span className="eyebrow" lang={t("en", "zh-Hans")}>{english}</span>
       <h2>{children}</h2>
     </div>
   );
@@ -60,14 +63,19 @@ export function SectionHeading({
 export function PageHero({
   title,
   english,
+  subtitleLang,
   image,
   variant,
 }: {
   title: string;
   english: string;
+  subtitleLang?: string;
   image: string;
   variant?: "about" | "services";
 }) {
+  const { t } = useLanguage();
+  const imageSrc = /^(?:\/|[a-z][a-z\d+.-]*:)/i.test(image) ? image : `/images/${image}`;
+
   return (
     <section
       className={`page-hero ${variant ? `page-hero--${variant}` : ""}`}
@@ -75,29 +83,40 @@ export function PageHero({
     >
       <img
         className="page-hero-image"
-        src={`/images/${image}`}
+        src={imageSrc}
         alt=""
         fetchPriority="high"
       />
       <div className="page-hero-shade" />
       <div className="container page-hero-content">
         <Reveal>
-          <span className="eyebrow">KOUU INC.</span>
+          <span className="eyebrow" lang="en">KOUU INC.</span>
           <h1>{title}</h1>
-          <span className="page-hero-english">{english}</span>
+          <span className="page-hero-english" lang={subtitleLang ?? t("en", "zh-Hans")}>{english}</span>
         </Reveal>
       </div>
     </section>
   );
 }
 
-export function Breadcrumb({ current }: { current: string }) {
+export function Breadcrumb({ current, className = "", business = false }: {
+  current: string;
+  className?: string;
+  business?: boolean;
+}) {
+  const { t } = useLanguage();
   return (
-    <nav className="breadcrumb container" aria-label="パンくずリスト">
+    <nav className={`breadcrumb container ${className}`} aria-label={t("パンくずリスト", "面包屑导航")}>
       <ol>
         <li>
-          <Link to="/">ホーム</Link>
+          <Link to="/">{t("ホーム", "首页")}</Link>
         </li>
+        {business && (
+          <li>
+            <ChevronRight size={11} aria-hidden="true" />
+            <Link to="/services">{t("事業紹介", "业务介绍")}</Link>
+          </li>
+        )}
         <li>
           <ChevronRight size={11} aria-hidden="true" />
           <span aria-current="page">{current}</span>
